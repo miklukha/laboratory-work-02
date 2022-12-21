@@ -72,7 +72,7 @@ def print_information(tickets, attribute, value):
 def check_value(option, type, arguments):
     while option not in arguments:
         option = input(f"Please, select {type} that exist: ")
-
+    return option
 
 def main():
     tickets = {"regular_ticket": RegularTicket(),
@@ -88,7 +88,7 @@ def main():
           "4: Exit the program\n")
 
     option = input("Your choice: ")
-    check_value(option, 'option', ["1", "2", "3", "4"])
+    option = check_value(option, 'option', ["1", "2", "3", "4"])
 
     if option == "1":
         unique_number = input("Enter unique number of ticket:\n"
@@ -97,7 +97,7 @@ def main():
                               "\t02343 - student ticket\n"
                               "\t02344 - late ticket\n")
 
-        check_value(unique_number, 'number', ["02341", "02342", "02343", "02344"])
+        unique_number = check_value(unique_number, 'number', ["02341", "02342", "02343", "02344"])
         print_information(tickets, "unique_number", unique_number)
     if option == "2":
         type = input("Enter type of ticket:\n"
@@ -106,7 +106,7 @@ def main():
                      "\tstudent\n"
                      "\tlate\n")
 
-        check_value(type, 'type', ["regular", "advance", "student", "late"])
+        type = check_value(type, 'type', ["regular", "advance", "student", "late"])
         print_information(tickets, "type", type)
     if option == "3":
         unique_number = input("Enter unique number of ticket:\n"
@@ -115,7 +115,7 @@ def main():
                               "\t02343\n"
                               "\t02344\n")
 
-        check_value(unique_number, 'number', ["02341", "02342", "02343", "02344"])
+        unique_number = check_value(unique_number, 'number', ["02341", "02342", "02343", "02344"])
         print_information(tickets, "unique_number", unique_number)
     if option == "4":
         print("See you late")
